@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>地址搜索</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        header, nav, section, footer {
+            max-width: 1200px;
+            margin: auto;
+            padding: 20px;
+        }
+        header {
+            background: #000;
+            color: #fff;
+            padding: 10px 20px;
+            text-align: center;
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+        }
+        nav ul li {
+            display: inline;
+            margin-right: 10px;
+        }
+        nav a {
+            text-decoration: none;
+            color: #fff;
+            padding: 5px 10px;
+            background: #ddd;
+            border-radius: 5px;
+        }
+        nav a:hover {
+            background: #ccc;
+        }
+        div {
+		    
+			justify-content: space-between; /* 两端对齐 */
+            align-items: center; /* 垂直居中 */
+            background: #fff;
+            margin-top: 5px;
+            padding: 10px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        #section1 p {
+            margin: 0; /* 移除p标签的默认外边距 */
+            display: flex; /* 启用Flexbox布局 */
+            align-items: center; /* 垂直居中 */
+            width: 100%; /* 让p标签占满整个section的宽度 */
+        }
+        #section1 span {
+            flex: 1; /* 让span标签平分容器空间 */
+        }
+        #section1 span:last-child {
+            text-align: right; /* 右侧的文字靠右对齐 */
+        }
+
+        footer {
+            background: #000;
+            color: #888;
+            text-align: center;
+            padding: 10px 20px;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+        h1, h2 {
+            color: #fff;
+        }
+        p {
+            margin: 10px 0;
+        }
+		a {
+            text-decoration: none; /* 去除下划线 */
+            color: #000000; /* 设置链接颜色 */
+        }
+        #search {
+            margin-bottom: 20px;
+            padding: 10px;
+            width: 100%;
+            max-width: 400px;
+        }
+        .item {
+            padding: 10px;
+            border: 1px solid #ccc;
+            margin: 5px 0;
+        }
+        .hidden {
+            display: none; /* 隐藏不匹配的项 */
+        }
+    </style>
+</head>
+<body>
+    <h1>导航地址搜索</h1>
+    <input type="text" id="search" placeholder="输入搜索内容..." />
+
+ <div id="content">
+
+ <a href="https://surl.amap.com/17MLkWIYcfzE" target="_blank"> <div class="item">访问月之暗面科技有限公司</div></a>
+ <a href="https://surl.amap.com/17MLkWIYcfzE" target="_blank"> <div class="item">学习JavaScript编程</div></a>
+ <a href="https://surl.amap.com/17MLkWIYcfzE" target="_blank"> <div class="item">武汉张幼玲诊所</div></a>
+ <a href="https://surl.amap.com/17MLkWIYcfzE" target="_blank"> <div class="item">武汉张幼玲诊所</div></a>
+
+
+
+        <div class="item">前端开发与设计</div>
+        <div class="item">使用HTML和CSS构建网页</div>
+        <div class="item">了<strong></strong>解搜索引擎优化（SEO）</div>
+        <div class="item">探索人工智能技术</div>
+    </div>
+
+    <script>
+        // 获取搜索框和内容容器
+        const searchInput = document.getElementById('search');
+        const content = document.getElementById('content');
+        const items = content.getElementsByClassName('item');
+
+        // 监听输入事件
+        searchInput.addEventListener('input', function() {
+            const query = this.value.toLowerCase(); // 获取用户输入并转为小写
+
+            // 遍历所有项，检查是否匹配
+            for (let i = 0; i < items.length; i++) {
+                const itemText = items[i].textContent.toLowerCase(); // 获取项的文本并转为小写
+                if (itemText.includes(query)) {
+                    items[i].classList.remove('hidden'); // 显示匹配项
+                } else {
+                    items[i].classList.add('hidden'); // 隐藏不匹配项
+                }
+            }
+        });
+    </script>
+</body>
+</html>
